@@ -21,3 +21,6 @@ def etl_func_list():
 def etl(string_input):
     return fold(string_input)
 
+
+def the_whole_list(list_input):
+    return list(map(lambda x: etl(x), list_input))
