@@ -25,3 +25,5 @@ def commit_rows(database_object, rows):
         cursor.execute(i)
     cursor.commit()
     return 'committed data'
+
+

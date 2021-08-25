@@ -25,5 +25,15 @@ def if_workbook(workbook_name):
         return workbook_name
 
 
+# convert them to a query ready format.
+
+def inserter_converter(list_input):
+    query_string = "INSERT INTO table_name(" + str.join(",", list_input[0]) + ")\n" + "VALUES\n"
+    listy = list_input.pop(0)
+    for i in listy:
+        query_string = query_string + '(' + str.join(', ', i) + ')' + '\n'
+    return query_string
+
+
 def convert(file_name):
-    return if_csv(if_workbook(file_name))
+    return inserter_converter(if_csv(if_workbook(file_name)))
